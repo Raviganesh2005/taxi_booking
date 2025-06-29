@@ -1,0 +1,81 @@
+header .nav-item{
+    padding:10px;
+}
+header .nav-link {
+
+    font-size:20px;
+    color:white;
+    font-weight:bold;
+    font-size:25px;
+    transition-property:background-image;
+    transition-duration:0.5s;
+}
+header .nav-link:hover{
+    background-image:linear-gradient(140deg,yellow,black,black);
+    color:white;
+    border-radius:20px;
+    font-weight:bold;
+}
+header nav{
+background-image:linear-gradient(to bottom right,yellow,black);
+}
+.about{
+font-size:20px;
+text-wrap:wrap;
+}
+.safety{
+font-size:20px;
+}
+.footer{
+    border:2px solid black;
+    background-color:black;
+    padding:20px;
+    text-align:center;
+}
+.footer a{
+            text-decoration:none;
+            color:white;
+            font-size:18px;
+            padding:10px;
+}
+.about p{
+
+    font-size:25px;
+    padding:10px;
+}
+.jobs p{
+            font-size: 35px;
+            color:white;
+            text-align: center;
+            padding:10px;
+            font-weight: bold;
+}
+.jobs{
+
+    background-image: url("https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:700px;
+}
+.job_link{
+    text-align: center;
+    margin-top: 50px;
+}
+.job_link a{
+            text-decoration: none;
+            font-size:25px;
+            color:white;
+            background-color: black;
+            border:2px solid black;
+            border-radius: 0 0 0 20px;
+            padding:20px;
+            text-align: center;
+            margin:auto;
+}
+.sub_job{
+            position:relative;
+            top:200px;
+}
+.work_with_us{
+                        border:2px solid black;
+}

@@ -1,0 +1,111 @@
+
+{% extends 'navigation_booking.html' %}
+
+{% block content %}
+
+    <div class="container my-5">
+        <form method="POST" >
+            {% csrf_token %}
+            <div class="subform">
+                        <label for="from">FROM</label>
+                        <input type="text" name="source" id="from" value="source">
+                        <label for="to">TO</label>
+                        <input type="text" id="to" name="to" value="destination">
+                        <input type="submit" value="search" class="btn btn-warning my-3">
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container my-5" style="max-width: 800px;"
+    >
+        <div class="row">
+            <div class="col-12">
+                {% for auto in auto %}
+            <a
+                href="{% url 'bookingDetail' vehicle_id=auto.vehicle_id fare=auto_fare|stringformat:'f' source=source|default:'none'|urlencode dest=dest|default:'none'|urlencode %}"><div class="card my-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="https://static.vecteezy.com/system/resources/previews/046/572/300/non_2x/auto-rickshaw-icon-illustration-on-white-background-glyph-style-free-vector.jpg"
+                            class ="img-left-card" style="width:200px;height:200px;">
+                        </div>
+                        <div class="col-4">
+                                <div class="card-body">
+                                    <div class="card-title" style="font-size:30px;">{{auto.vehicle_name}}</div>
+                                    <div class="card-text">Maximum 3 persons
+                                        <br>Pickup: {{source}} Drop: {{dest}}</div>
+                                        <div class="card-text">Kilometer:{{kilometer}}</div>
+                                </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card-text">
+                            <h3 style="margin-top:50px">Fare:Rs.{{auto_fare}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+            <div class="col-12">
+                {% for car in car %}
+                <a href="{% url 'bookingDetail' vehicle_id=car.vehicle_id fare=car_fare|stringformat:'f' source=source|default:'none'|urlencode dest=dest|default:'none'|urlencode %}">
+                <div class="card my-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="https://img.freepik.com/premium-vector/black-car-icon-car-vector-icon-isolated-white-background-vehicle-sign-vector-illustration_882636-360.jpg"
+                                class="img-left-card" style="width:200px;height:200px;">
+                        </div>
+                        <div class="col-4">
+                            <div class="card-body">
+                                <div class="card-title" style="font-size:30px;">{{car.vehicle_name}}</div>
+                                <div class="card-text">Maximum 7 persons
+                                    <br>Pickup:{{source}} Drop:{{dest}}
+                                </div>
+                                <div class="card-text">Kilometer:{{kilometer}}</div>
+                            </div>
+                           
+                        </div>
+                        <div class="col-4">
+                            <div class="card-text">
+                                <h3 style="margin-top:50px">Fare:Rs.{{car_fare}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                {% endfor %}
+                <div class="col-12">
+                    {% for bike in bike %}
+                    <a href="{% url 'bookingDetail' vehicle_id=bike.vehicle_id fare=bike_fare|stringformat:'f' source=source|default:'none'|urlencode dest=dest|default:'none'|urlencode %}">
+                    <div class="card my-3">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzqd8DXW_S1NNIuVNNR4GAFKLhlWBsgt59g&s"
+                                    class="img-left-card" style="width:200px;height:200px;">
+                            </div>
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <div class="card-title" style="font-size:30px;">{{bike.vehicle_name}}</div>
+                                    <div class="card-text">Maximum 1 persons
+                                        <br>Pickup:{{source}} Drop:{{dest}}
+                                    </div>
+                                    <div class="card-text">Kilometer:{{kilometer}}</div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-4">
+                                <div class="card-text">
+                                    <h3 style="margin-top: 50px;">Fare:Rs.{{bike_fare}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    </a> 
+                    {% endfor %}
+            </div>
+        </div>
+
+
+
+    
+{% endblock %}

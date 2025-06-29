@@ -1,0 +1,65 @@
+{% extends 'navigation_booking.html' %}
+
+{% block content %}
+
+{% for book in booking %}
+
+{% if book.driver_id == driver.driver_id  %}
+
+<div class="container my-5" style="max-width: 700px;">
+    <div class="card">
+        <div class="card-title">
+            <h1 style="text-align: center;">BOOKING DETAIL</h1>
+        </div>
+        <div class="card-body mx-auto">
+            <div class="card-text">
+                <h5><span class="detail_booking">PICKUP LOCATION:</span>{{book.pickup}}</h5>
+                <h5><span class="detail_booking">DROP LOCATION:</span>{{book.destination}}</h5>
+                <H5><span class="detail_booking" style="padding-right: 150px;">FARE:</span>{{book.fare}}</H5>
+            </div>
+            <div class="card-link my-5" ><a href="{% url 'accept' book.booking_id driver.driver_id %}" class="btn btn-danger mx-5">ACCEPT</a><a href="{% url 'delete' book.booking_id driver.driver_id %}" class="btn btn-danger mx-5">CANCEL</a></div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+{% for book_accept in book_accepted %}
+
+{% if book_accept.driver_id == driver.driver_id %}
+
+<div class="container my-5" style="max-width: 700px;">
+    <div class="card">
+        <div class="card-title">
+            <h1 style="text-align: center;">BOOKING DETAIL</h1>
+        </div>
+        <div class="card-body mx-auto">
+            <div class="card-text">
+                <h5><span class="detail_booking">PICKUP LOCATION:</span>{{book_accept.pickup}}</h5>
+                <h5><span class="detail_booking">DROP LOCATION:</span>{{book_accept.destination}}</h5>
+                <H5><span class="detail_booking" style="padding-right: 150px;">FARE:</span>{{book_accept.fare}}</H5>
+            </div>
+            <div class="card-link my-5"><a href="{% url 'delete' book_accept.booking_id driver.driver_id %}"
+                    class="btn btn-danger mx-5">CANCEL</a></div>
+
+                    <h3 style="text-align: center;">Your ride is started</h3>
+                    <div class="progress">
+                        <div class="progress-bar" ></div>
+                    </div>
+                    <div class="card-link my-5" style="text-align: center;"><a href="{% url 'driver_complete' book_accept.booking_id %}" class="btn btn-danger">COMPLETE</a></div>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endfor %}
+
+
+
+
+{% endblock %}

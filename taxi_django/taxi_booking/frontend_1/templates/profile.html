@@ -1,0 +1,30 @@
+{% extends 'booking.html' %}
+
+{% block content %}
+
+<div class="container my-5" style="max-width: 700px;">
+
+    <div class="card" style="background-color: antiquewhite;">
+        <div class="card-title"><h1 style="text-align: center;">PROFILE</h1></div>
+        <div class="card-body mx-auto p-5">
+            <div class="card-text mb-5"><h6><b><span class="text">NAME:</span>{{user.customer_name}}</b></h6></div>
+            <div class="card-text mb-5"><h6><b><span class="text">USERNAME:</span>{{user.customer_username}}</b></h6></div>
+            <div class="card-text mb-5">
+                <h6><b><span class="text">MOBILE:</span></span>{{user.customer_mobile}}</b></h6>
+            </div>
+            <div class="card-text mb-5">
+                <h6><b><span class="text">EMAIL:</span></span>{{user.customer_email}}</b></h6>
+            </div>
+            <div class="card-text mb-5">
+                <h6><b><span class="text">CITY:</span></span>{{user.customer_city}}</b></h6>
+            </div>
+            <div class="card-link"><a href="editProfile" class="btn btn-danger">EDIT</a></div> 
+        </div>
+    </div>  
+</div>
+
+
+
+
+
+{% endblock %}

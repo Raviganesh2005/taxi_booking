@@ -1,0 +1,38 @@
+{% extends 'navigation_booking.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center;">History</h1>
+
+<div class="container my-5">
+
+    {% for book in booking %}
+
+        <table class="table table-borderless">
+            <thead>
+                <th>Driver Name</th>
+                <th>Pickup Location</th>
+                <th>Drop Location</th>
+                <th>Traveler Name</th>
+                <th>Date</th>
+                <th>Fare</th>
+            </thead>
+            <tbody>
+                {% for driver in driver %}
+                <td>{{driver.driver_name}}</td>
+                {% endfor %}
+                <td>{{book.pickup}}</td>
+                <td>{{book.destination}}</td>
+                {% for customer in customer %}
+                <td>{{customer.customer_name}}</td>
+                {% endfor %}
+                <td>{{book.booking_date}}</td>
+                <td>{{book.fare}}</td>
+            </tbody>
+        </table>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
