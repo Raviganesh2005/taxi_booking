@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'taxi_booking_management',
         'USER':'root',
-        'PASSWORD':"Ravi@2005",
+        'PASSWORD':"",
         'HOST':"localhost",
         'PORT':'3306',
     }
